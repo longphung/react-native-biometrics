@@ -3,6 +3,8 @@
 
 React native biometrics is a simple bridge to native iOS and Android keystore management.  It allows you to create public private key pairs that are stored in native keystores and protected by biometric authentication.  Those keys can then be retrieved later, after proper authentication, and used to create a cryptographic signature.
 
+This package was forked from [SelfLender/react-native-biometrics](https://github.com/SelfLender/react-native-biometrics)
+
 ## React Native Compatibility
 
 | `react-native-biometrics` version | Required React Native Version |
@@ -14,11 +16,11 @@ React native biometrics is a simple bridge to native iOS and Android keystore ma
 
 using either Yarn:
 
-`yarn add react-native-biometrics`
+`yarn add @longphung/react-native-biometrics`
 
 or npm:
 
-`$ npm install react-native-biometrics --save`
+`$ npm install @longphung/react-native-biometrics --save`
 
 ### Install pods
 
