@@ -74,11 +74,13 @@ export const BiometryTypes = {
 export module ReactNativeBiometricsLegacy {
   /**
    * Returns promise that resolves to an object with object.biometryType = Biometrics | TouchID | FaceID
-   * @param {boolean} promptForEnrollment - Android SDK 30+ only, if true, will prompt user to enroll in biometrics if they haven't already
+   * @param options.promptForEnrollment - Android SDK 30+ only, if true, will prompt user to enroll in biometrics if they haven't already
    * @returns {Promise<Object>} Promise that resolves to an object with details about biometrics available
    */
-  export function isSensorAvailable(promptForEnrollment?: boolean): Promise<IsSensorAvailableResult> {
-    return new ReactNativeBiometrics().isSensorAvailable()
+  export function isSensorAvailable(options: {
+    promptForEnrollment?: boolean
+  }): Promise<IsSensorAvailableResult> {
+    return new ReactNativeBiometrics().isSensorAvailable(options)
   }
 
   /**
@@ -148,13 +150,15 @@ export default class ReactNativeBiometrics {
 
   /**
    * Returns promise that resolves to an object with object.biometryType = Biometrics | TouchID | FaceID
-   * @param {boolean} promptForEnrollment - Android SDK 30+ only, if true, will prompt user to enroll in biometrics if they haven't already
+   * @param options.promptForEnrollment - Android SDK 30+ only, if true, will prompt user to enroll in biometrics if they haven't already
    * @returns {Promise<Object>} Promise that resolves to an object with details about biometrics available
    */
-  isSensorAvailable(promptForEnrollment?: boolean): Promise<IsSensorAvailableResult> {
+  isSensorAvailable(options: {
+    promptForEnrollment?: boolean
+  }): Promise<IsSensorAvailableResult> {
     return bridge.isSensorAvailable({
       allowDeviceCredentials: this.allowDeviceCredentials,
-      promptForEnrollment,
+      promptForEnrollment: options.promptForEnrollment,
     })
   }
 
