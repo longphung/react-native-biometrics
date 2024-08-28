@@ -77,7 +77,7 @@ export module ReactNativeBiometricsLegacy {
    * @param options.promptForEnrollment - Android SDK 30+ only, if true, will prompt user to enroll in biometrics if they haven't already
    * @returns {Promise<Object>} Promise that resolves to an object with details about biometrics available
    */
-  export function isSensorAvailable(options: {
+  export function isSensorAvailable(options?: {
     promptForEnrollment?: boolean
   }): Promise<IsSensorAvailableResult> {
     return new ReactNativeBiometrics().isSensorAvailable(options)
@@ -153,12 +153,12 @@ export default class ReactNativeBiometrics {
    * @param options.promptForEnrollment - Android SDK 30+ only, if true, will prompt user to enroll in biometrics if they haven't already
    * @returns {Promise<Object>} Promise that resolves to an object with details about biometrics available
    */
-  isSensorAvailable(options: {
+  isSensorAvailable(options?: {
     promptForEnrollment?: boolean
   }): Promise<IsSensorAvailableResult> {
     return bridge.isSensorAvailable({
       allowDeviceCredentials: this.allowDeviceCredentials,
-      promptForEnrollment: options.promptForEnrollment,
+      promptForEnrollment: options?.promptForEnrollment,
     })
   }
 
