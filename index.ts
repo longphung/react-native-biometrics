@@ -83,6 +83,10 @@ export module ReactNativeBiometricsLegacy {
     return new ReactNativeBiometrics().isSensorAvailable(options)
   }
 
+  export function promptForEnrollment(allowDeviceCredentials: boolean): Promise<void> {
+    return new ReactNativeBiometrics().promptForEnrollment(allowDeviceCredentials);
+  }
+
   /**
    * Creates a public private key pair,returns promise that resolves to
    * an object with object.publicKey, which is the public key of the newly generated key pair
@@ -160,6 +164,10 @@ export default class ReactNativeBiometrics {
       allowDeviceCredentials: this.allowDeviceCredentials,
       promptForEnrollment: options?.promptForEnrollment,
     })
+  }
+
+  async promptForEnrollment(allowDeviceCredentials: boolean) {
+    return bridge.promptForEnrollment(allowDeviceCredentials);
   }
 
   /**

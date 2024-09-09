@@ -102,6 +102,16 @@ public class ReactNativeBiometrics extends ReactContextBaseJavaModule {
         }
     }
 
+    @ReactMethod
+    public void promptForEnrollment(Boolean allowDeviceCredentials, Promise promise) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            this.promptForBiometrics(allowDeviceCredentials);
+            promise.resolve(null);
+        } else {
+            promise.reject("Cannot prompt for biometrics on android versions below 6.0", "Cannot prompt for biometrics on android versions below 6.0");
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.R)
     private void promptForBiometrics(boolean allowDeviceCredentials) {
         final Activity currentActivity = getCurrentActivity();
