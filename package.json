@@ -1,6 +1,6 @@
 {
-  "name": "react-native-biometrics",
-  "version": "3.0.1",
+  "name": "@longphung/react-native-biometrics",
+  "version": "3.1.6",
   "summary": "A React Native library for biometrics",
   "description": "React Native biometric functionality for signing and encryption",
   "main": "build/cjs/index.js",
@@ -24,17 +24,23 @@
     "touch-id",
     "face-id"
   ],
-  "homepage": "https://github.com/SelfLender/react-native-biometrics",
-  "contributors": [],
+  "homepage": "https://github.com/longphung/react-native-biometrics",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SelfLender/react-native-biometrics.git"
+    "url": "git+https://github.com/longphung/react-native-biometrics.git"
   },
   "private": false,
   "author": {
     "name": "Brandon Hines",
     "url": "https://github.com/NappyPirate"
   },
+  "contributors": [
+    {
+      "name": "Phung Nguyen",
+      "email": "longphung.nn@gmail.com",
+      "url": "https://github.com/longphung"
+    }
+  ],
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.60.0"
@@ -43,6 +49,7 @@
     "url": "https://github.com/SelfLender/react-native-biometrics/issues"
   },
   "devDependencies": {
-    "typescript": "^3.7.2"
+    "react-native": "^0.75.2",
+    "typescript": "^5.5.4"
   }
 }
